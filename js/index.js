@@ -40,3 +40,37 @@ contentImage.forEach(img =>{
         e.target.style.transform = 'scaleX(1)';
     })
 })
+
+let h2Tags = document.querySelectorAll('h2');
+h2Tags.forEach(tag => {
+    tag.addEventListener('mouseover', e => {
+        tag.style.color = tag.style.color === 'red' ?
+            'black' : 'red';
+    })
+})
+
+let home = document.querySelector('.home');
+let buttons = document.querySelectorAll('.btn');
+let emailForm = document.querySelector('form');
+let submitEmail = emailForm.children[2];
+let success = document.querySelector('.success');
+
+buttons.forEach(button => {
+    button.addEventListener('click', e => {
+        emailForm.style.display = 
+            emailForm.style.display === 'none' ?
+                'block' : 'none';
+
+        success.style.display = 'none';
+    })
+})
+
+submitEmail.addEventListener('click', e =>{
+    e.preventDefault();
+    let submission = emailForm.children[1].value;
+    if (submission !== ''){
+        emailForm.style.display = 'none';
+        emailForm.children[1].value = '';
+        success.style.display = 'block';
+    }
+});
