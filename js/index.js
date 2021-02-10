@@ -2,12 +2,20 @@
 const busImage = document.querySelector('.intro img')
 
 busImage.addEventListener('mouseenter', e =>{
-    e.target.style.opacity=.6;
+    e.target.style.opacity=1;
 });
 
 busImage.addEventListener('mouseleave', e =>{
-    e.target.style.opacity=1;
+    e.target.style.opacity=.6;
 });
+
+let colors = ['red', 'blue', 'green', 'white'];
+    let index = 0;
+window.addEventListener('scroll', e => {
+    index = index === 3 ? 0 : index + 1; 
+    document.querySelector('header').style.backgroundColor = colors[index];
+});
+
 
 const contentImage = document.querySelectorAll('.img-content img');
 
